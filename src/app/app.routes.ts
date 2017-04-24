@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-
-import { DataResolver } from './app.resolver';
+import { DestPageComponent } from './dest-page/dest-page.component'; 
+import { FinalViewComponent } from './final-view/final-view.component'; 
 
 export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'home',  component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'detail', loadChildren: './+detail#DetailModule'},
-  { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
-  { path: '**',    component: NoContentComponent },
+  { path: 'dest-page.component',  component: DestPageComponent },
+  { path: '', component: DestPageComponent },
+  { path: 'home.component',  component: HomeComponent },
+  { path: 'final-view.component',  component: FinalViewComponent },
+  { path: '', component: FinalViewComponent },
+  { path: 'home.component',  component: HomeComponent },
 ];

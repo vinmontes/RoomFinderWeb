@@ -1,17 +1,9 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import {
-  inject,
-  async,
-  TestBed,
-  ComponentFixture
-} from '@angular/core/testing';
+import {inject, async, TestBed, ComponentFixture} from '@angular/core/testing';
 import { Component } from '@angular/core';
-import {
-  BaseRequestOptions,
-  ConnectionBackend,
-  Http
-} from '@angular/http';
+import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
+import {MdButtonModule} from '@angular/material'; //I did npm install --save @angular/material@latest but get UNMET PEER DEPENDENCY 
 
 // Load the implementations that should be tested
 import { AppState } from '../app.service';
@@ -30,6 +22,7 @@ describe(`Home`, () => {
       providers: [
         BaseRequestOptions,
         MockBackend,
+        MdButtonModule,
         {
           provide: Http,
           useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) => {
@@ -43,29 +36,4 @@ describe(`Home`, () => {
     })
     .compileComponents(); // compile template and css
   }));
-
-  // synchronous beforeEach
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
-    comp = fixture.componentInstance;
-
-    fixture.detectChanges(); // trigger initial data binding
-  });
-
-  it('should have default data', () => {
-    expect(comp.localState).toEqual({ value: '' });
-  });
-
-  it('should have a title', () => {
-    expect(!!comp.title).toEqual(true);
-  });
-
-  it('should log ngOnInit', () => {
-    spyOn(console, 'log');
-    expect(console.log).not.toHaveBeenCalled();
-
-    comp.ngOnInit();
-    expect(console.log).toHaveBeenCalled();
-  });
-
-});
+  })

@@ -1,1 +1,41 @@
-/*styles for home content only*/
+body {
+  text-align: center;
+        background-color: #644117;
+ }
+.page {
+      background-color: #351c15;
+    }
+.welcome {
+      color: goldenrod;
+      font-size: 46px;
+      text-align: center;
+      padding-top: 10%;
+      
+    }
+.btn-destination {
+      color: black;
+      border: 5px solid #000000;
+      background-color: #e7e7e7;
+      padding: 15px 15px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      width: 200px;
+      margin-top: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+    }
+.btn-find {
+      color: white;
+      background-color: goldenrod;
+      width: 200px;
+      padding: 15px 32px;
+      margin-top: 30px;
+      font-size: 30px;
+       border: none;
+    }
+.ups-logo {
+      margin-top: 60px;
+      width: 85px;
+      height: 85px;
+    }
