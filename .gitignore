@@ -62,3 +62,4 @@ npm-debug.log
 # IDE #
 .idea/
 *.swp
+/node_modules
