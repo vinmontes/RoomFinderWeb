@@ -39,3 +39,9 @@ body {
       width: 85px;
       height: 85px;
     }
+md-input-container {
+      color: pink;
+}
+autocomplete-box {
+      background: pink;
+}

@@ -3,6 +3,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdAutocompleteModule, MdInputModule} from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms'
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -47,6 +51,10 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
+    MdAutocompleteModule,
+    MdInputModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

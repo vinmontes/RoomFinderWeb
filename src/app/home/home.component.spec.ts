@@ -9,6 +9,9 @@ import {MdButtonModule} from '@angular/material'; //I did npm install --save @an
 import { AppState } from '../app.service';
 import { HomeComponent } from './home.component';
 import { Title } from './title';
+import {MdAutocompleteModule} from '@angular/material';
+
+
 
 describe(`Home`, () => {
   let comp: HomeComponent;
@@ -37,3 +40,4 @@ describe(`Home`, () => {
     .compileComponents(); // compile template and css
   }));
   })
+
