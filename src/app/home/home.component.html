@@ -1,0 +1,22 @@
+<body class="page">
+  <h1 class="welcome"> Welcome To UPS <br> Innovation Center</h1>
+  <!--  <input type="text" name="search" placeholder="Enter Name or Destination #" style="font-size: 15px; width: 200px; height: 50px;">
+-->
+  <md-input-container class="autocomplete-box" >
+    <input placeholder="Enter Name or Destination #" mdInput
+      [mdAutocomplete]="auto" 
+      [formControl]="stateCtrl"
+      style="color: white;">
+  </md-input-container>
+
+  <md-autocomplete #auto="mdAutocomplete">
+    <md-option *ngFor="let state of filteredStates | async" [value]="state">
+      {{ state }}
+    </md-option>
+  </md-autocomplete>
+
+  <div>
+    <button class="btn-find" (click)="clicked()">Find</button>
+  </div>
+    <img src="assets/img/ups-logo.png" style="width:84px;height:100px;padding-top:4%;">
+</body>

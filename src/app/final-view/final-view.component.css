@@ -1,0 +1,48 @@
+.btn-new {
+    color: white;
+    background-color: goldenrod;
+    padding: 15px 32px;
+    margin-top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 5%;
+    border: none;
+}
+.ups-logo {
+    width: 105px;
+    height: 120px;
+    margin-right: 5%;
+    }
+.page {
+    background-color: #351c15;
+}
+.logo-three-d {
+    width: 55px;
+    height: 55px;
+    margin-left: 5%;
+    margin-right: 2%;
+}
+.col {
+  float: left;
+}
+.floor {
+    color: goldenrod;
+    font-size: 24px;
+    padding: 5%;
+    text-align: center;
+}
+.div {
+        width: 50%;
+}
+.route-img {
+    width: 700px;
+    height: 450px;
+}
+.btn-back {
+    color: goldenrod;
+    background: transparent;
+    font-size: 26px;
+    width: 250px;
+    display: table-cell;
+    vertical-align: middle; 
+}
