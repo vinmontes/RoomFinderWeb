@@ -14,9 +14,9 @@ export class DestPageComponent {
   constructor( private router: Router) 
   {}
   public clicked() {
-    this.router.navigate(["final-view.component"]);
+    this.router.navigate(["final-view"]);
   }
     public clickedNew() {
-    this.router.navigate(["home.component"]);
+    this.router.navigate(["home"]);
   }
 }

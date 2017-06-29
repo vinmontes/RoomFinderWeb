@@ -97,7 +97,7 @@ export class HomeComponent {
   }
 
   public clicked() {
-    this.router.navigate(["dest-page.component"]);
+    this.router.navigate(["dest-page"]);
   }
 
   

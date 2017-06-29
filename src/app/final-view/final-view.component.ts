@@ -14,10 +14,10 @@ export class FinalViewComponent {
   constructor( private router: Router) 
   {}
   public clicked() {
-    this.router.navigate(["dest-page.component"]);
+    this.router.navigate(["dest-page"]);
   }
   public clickedNew() {
-    this.router.navigate(["home.component"]);
+    this.router.navigate(["home"]);
   }
   
 }
