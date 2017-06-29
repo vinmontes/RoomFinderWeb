@@ -45,3 +45,9 @@ md-input-container {
 autocomplete-box {
       background: pink;
 }
+
+.search-bar{
+      width: 50%;
+      margin: 0 auto;
+      vertical-align: center;
+}

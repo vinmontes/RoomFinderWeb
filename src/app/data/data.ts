@@ -1,3 +1,17 @@
+import { Cubical } from '../model/cubical';
+
+export const CUBES: Cubical[] = [
+  { id: "1", owner: "Ferguson Jerome"},
+  { id: "2", owner: "Wagner John J"},
+  { id: "3", owner: "Patel Vanita"},
+  { id: "4", owner: "Marrero Jason"},
+  { id: "5", owner: "Parikh Dhruvil"},
+  { id: "6", owner: "Shastry Padmanabha"},
+  { id: "7", owner: "Chava Jyosna"},
+  { id: "8", owner: "Grazano Vincent"}
+]
+
+/*
 {
   'Ferguson Jerome',
 'Wagner John J',
@@ -938,3 +952,5 @@
 'Holsipple Kevin ',
 
 }
+
+*/
