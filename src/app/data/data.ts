@@ -1,6 +1,6 @@
-import { Cubical } from '../model/cubical';
+import { CUBICAL } from '../model/cubical';
 
-export const CUBES: Cubical[] = [
+export const CUBES: CUBICAL[] = [
   { id: "1", owner: "Ferguson Jerome"},
   { id: "2", owner: "Wagner John J"},
   { id: "3", owner: "Patel Vanita"},

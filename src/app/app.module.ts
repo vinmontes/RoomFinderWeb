@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule, ApplicationRef, enableProdMode } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdAutocompleteModule,
           MdButtonModule,
           MdButtonToggleModule,
@@ -43,6 +43,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { DestPageComponent } from './dest-page/dest-page.component'; 
+import { DestPageService } from './dest-page/dest-page.service';
 import { FinalViewComponent } from './final-view/final-view.component'; 
 
 import '../styles/styles.scss';
@@ -109,7 +110,8 @@ enableProdMode()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    DestPageService
   ]
 })
 export class AppModule {

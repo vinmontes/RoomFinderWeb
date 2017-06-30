@@ -6,7 +6,7 @@ import { FinalViewComponent } from './final-view/final-view.component';
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home',  component: HomeComponent },
-  { path: 'dest-page',  component: DestPageComponent },
-  { path: 'final-view',  component: FinalViewComponent },
+  { path: 'dest-page/:id',  component: DestPageComponent },
+  { path: 'final-view/:id',  component: FinalViewComponent },
 ];
 
