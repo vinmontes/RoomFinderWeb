@@ -1,22 +1,35 @@
-<body class="page">
+<body class="page" @flyInOut>
   <h1 class="welcome"> Welcome To UPS <br> Innovation Center</h1>
   <!--  <input type="text" name="search" placeholder="Enter Name or Destination #" style="font-size: 15px; width: 200px; height: 50px;">
 -->
+  <div class="input-group search-bar">
+    <input type="text" class="form-control" 
+            placeholder="Search Name Or Location" 
+            aria-describedby="search-bar"
+            name="searchCube"
+            #searchCube="ngModel"
+            (ngModelChange)="filteredCubes = filterCubes(currentCube)"
+            [(ngModel)]="currentCube"
+            [mdAutocomplete]="auto">
+    <span class="input-group-addon" id="search-bar"><i class="fa fa-search" aria-hidden="true"></i></span>
+  </div>
+<!--
   <md-input-container class="autocomplete-box" >
     <input placeholder="Enter Name or Destination #" mdInput
       [mdAutocomplete]="auto" 
       [formControl]="stateCtrl"
       style="color: white;">
   </md-input-container>
-
-  <md-autocomplete #auto="mdAutocomplete">
-    <md-option *ngFor="let state of filteredStates | async" [value]="state">
-      {{ state }}
+-->
+  <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayFn">
+    <md-option *ngFor="let cube of filteredCubes" [value]="cube" (click)="selectedCube(cube)">
+      {{ cube.owner }}
     </md-option>
   </md-autocomplete>
-
+<!--
   <div>
-    <button class="btn-find" (click)="clicked()">Find</button>
+    <button class="btn-find" md-raised-button (click)="clicked()">Find</button>
   </div>
-    <img src="assets/img/ups-logo.png" style="width:84px;height:100px;padding-top:4%;">
+-->
+    <img src="assets/img/ups-logo.png" style="width: 25%; height: 42%">
 </body>

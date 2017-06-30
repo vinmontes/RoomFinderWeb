@@ -1,10 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule, ApplicationRef, enableProdMode } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdAutocompleteModule, MdInputModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdAutocompleteModule,
+          MdButtonModule,
+          MdButtonToggleModule,
+          MdCardModule,
+          MdCheckboxModule,
+          MdChipsModule,
+          MdDatepickerModule,
+          MdDialogModule,
+          MdGridListModule,
+          MdIconModule,
+          MdInputModule,
+          MdListModule,
+          MdMenuModule,
+          MdNativeDateModule,
+          MdProgressBarModule,
+          MdProgressSpinnerModule,
+          MdRadioModule,
+          MdSelectModule,
+          MdSidenavModule,
+          MdSliderModule,
+          MdSlideToggleModule,
+          MdSnackBarModule,
+          MdTabsModule,
+          MdToolbarModule,
+          MdTooltipModule } from '@angular/material';
+
 import { ReactiveFormsModule } from '@angular/forms'
 
 /*
@@ -18,6 +43,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { DestPageComponent } from './dest-page/dest-page.component'; 
+import { DestPageService } from './dest-page/dest-page.service';
 import { FinalViewComponent } from './final-view/final-view.component'; 
 
 import '../styles/styles.scss';
@@ -36,6 +62,8 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
+enableProdMode()
+
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -52,14 +80,38 @@ type StoreType = {
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdAutocompleteModule,
-    MdInputModule,
     ReactiveFormsModule,
+    MdAutocompleteModule,
+    MdButtonModule,
+    MdButtonToggleModule,
+    MdCardModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdDatepickerModule,
+    MdDialogModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdNativeDateModule,
+    MdProgressBarModule,
+    MdProgressSpinnerModule,
+    MdRadioModule,
+    MdSelectModule,
+    MdSidenavModule,
+    MdSliderModule,
+    MdSlideToggleModule,
+    MdSnackBarModule,
+    MdTabsModule,
+    MdToolbarModule,
+    MdTooltipModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    DestPageService
   ]
 })
 export class AppModule {
