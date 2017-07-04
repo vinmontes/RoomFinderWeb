@@ -44,6 +44,89 @@ import { CUBES } from '../data/data';
   ]
 })
 
+export class HomeComponent implements OnInit{
+ 
+   public query = '';
+   showSearchContent: boolean = false;
+   cubes = [];
+ 
+   public filteredList = [];
+   public elementRef;
+   selectedIdx: number;
+ 
+   constructor(private router: Router){}
+ 
+   ngOnInit(){
+       this.cubes = CUBES;
+    //    console.log(JSON.stringify(this.cubes));
+    //    this.filteredList = this.cubes;
+       this.showSearchContent = false;
+   }
+ 
+   cubeSelected(){
+       this.router.navigate(["dest-page"]);
+   }
+ 
+   filter(event: any) {
+       console.log("event: " + this.query);
+       this.showSearchContent = true;
+       if (this.query !== undefined) {
+           if(this.query !==""){
+               this.filteredList = this.cubes.filter(function (cube) {
+                   // console.log("cube: " + JSON.stringify(cube));
+                   let checkIfOwnerName = new RegExp('^[A-Za-z\s]+');
+                   // console.log("RegexTest: " + checkIfOwnerName.test(this.query));
+                   // console.log("Type test: " + typeof this.query);
+                   if(checkIfOwnerName.test(this.query)){
+                       return cube.owner.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
+                   }
+                   else{
+                       return cube.id.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
+                   }
+               }.bind(this));
+           }
+           else{
+               this.showSearchContent = false;
+               return this.filteredList = [];
+           }
+          
+           if (event.code == "ArrowDown" && this.selectedIdx < this.filteredList.length) {
+               this.selectedIdx++;
+           } else if (event.code == "ArrowUp" && this.selectedIdx > 0) {
+               this.selectedIdx--;
+           }
+       } else {
+           this.filteredList = [];
+       }
+   }
+ 
+   handleBlur() {
+       if (this.selectedIdx > -1) {
+           this.query = this.filteredList[this.selectedIdx];
+       }
+       this.filteredList = [];
+       this.selectedIdx = -1;
+   }
+ 
+   handleClick(event) {
+       var clickedComponent = event.target;
+       var inside = false;
+       do {
+           if (clickedComponent === this.elementRef.nativeElement) {
+               inside = true;
+           }
+           clickedComponent = clickedComponent.parentNode;
+       } while (clickedComponent);
+       if (!inside) {
+           this.filteredList = [];
+       }
+       this.selectedIdx = -1;
+   }
+ 
+}
+
+
+/*
 export class HomeComponent {
   public localState = { value: '' };
   cubeCtrl: FormControl;
@@ -89,3 +172,4 @@ export const appComponents: any = [
 
 ];
 
+*/

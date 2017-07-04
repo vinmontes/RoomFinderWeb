@@ -1,7 +1,8 @@
 <body class="page" @flyInOut>
-  <h1 class="welcome"> Welcome To UPS <br> Innovation Center</h1>
+  <h1 class="welcome">UPS Innovation Center</h1>
   <!--  <input type="text" name="search" placeholder="Enter Name or Destination #" style="font-size: 15px; width: 200px; height: 50px;">
 -->
+<!--
   <div class="input-group search-bar">
     <input type="text" class="form-control" 
             placeholder="Search Name Or Location" 
@@ -13,6 +14,7 @@
             [mdAutocomplete]="auto">
     <span class="input-group-addon" id="search-bar"><i class="fa fa-search" aria-hidden="true"></i></span>
   </div>
+-->
 <!--
   <md-input-container class="autocomplete-box" >
     <input placeholder="Enter Name or Destination #" mdInput
@@ -21,15 +23,38 @@
       style="color: white;">
   </md-input-container>
 -->
+<!--
   <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayFn">
     <md-option *ngFor="let cube of filteredCubes" [value]="cube" (click)="selectedCube(cube)">
       {{ cube.owner }}
     </md-option>
   </md-autocomplete>
+-->
 <!--
   <div>
     <button class="btn-find" md-raised-button (click)="clicked()">Find</button>
   </div>
 -->
-    <img src="assets/img/ups-logo.png" style="width: 25%; height: 42%">
+  <div class="input-group search-bar">
+    <input class="form-control"  
+           [(ngModel)]=query
+           (keyup)=filter($event)
+           placeholder="Search by name or cube"
+           style="border: none">
+    <span class="input-group-addon" id="search-bar"><i class="fa fa-search" aria-hidden="true"></i></span>
+  </div>
+  <div *ngIf="showSearchContent">
+    <div *ngFor="let cube of filteredList" class="form-control dialog-content top-border">
+      <div id="{{ cube.id }}" (click)="cubeSelected(cube)">
+        <span>{{ cube.owner }}</span>
+      </div>
+    </div>
+    <div *ngIf="cubes.length > 0 && filteredList.length < 1">
+        <div class="row-content">No Match Found</div>
+    </div>
+    <div *ngIf="cubes.length == 0">
+        <div class="row-content"><i>No Cube Found</i></div>
+    </div>  
+  </div>
+    <img src="assets/img/ups-logo-2.png" style="padding-top: 3%">
 </body>
