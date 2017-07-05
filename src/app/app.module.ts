@@ -30,8 +30,7 @@ import { MdAutocompleteModule,
           MdToolbarModule,
           MdTooltipModule } from '@angular/material';
 
-import { ReactiveFormsModule } from '@angular/forms'
-
+import { ReactiveFormsModule } from '@angular/forms';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -49,6 +48,7 @@ import { FinalViewComponent } from './final-view/final-view.component';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
+enableProdMode();
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -61,8 +61,6 @@ type StoreType = {
   restoreInputValues: () => void,
   disposeOldHosts: () => void
 };
-
-enableProdMode()
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -121,7 +119,3 @@ export class AppModule {
     public appState: AppState
   ) {}
 }
-
-
-
-

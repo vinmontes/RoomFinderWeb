@@ -4,7 +4,8 @@
 import {
   Component,
   OnInit,
-  ViewEncapsulation
+  ViewEncapsulation,
+  enableProdMode
 } from '@angular/core';
 import { AppState } from './app.service';
 
@@ -12,6 +13,9 @@ import { AppState } from './app.service';
  * App Component
  * Top Level Component
  */
+
+enableProdMode();
+
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
