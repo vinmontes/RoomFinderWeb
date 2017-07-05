@@ -9,7 +9,8 @@ body {
       color: goldenrod;
       font-size: 46px;
       text-align: center;
-      padding-top: 10%;
+      padding-top: 5%;
+      padding-bottom: 2%;
       
     }
 .btn-destination {
@@ -50,4 +51,21 @@ autocomplete-box {
       width: 50%;
       margin: 0 auto;
       vertical-align: center;
+}
+
+.dialog-content{
+    background-color: #FFFFFF;
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 12px;
+}
+
+@media all and (max-width: 600px){
+     .search-bar{
+            width: 80%;
+      }
+      .dialog-content{
+            width: 80%;
+      }
 }

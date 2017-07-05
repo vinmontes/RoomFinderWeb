@@ -1,12 +1,18 @@
 
-<body @flyInOut>    
+<body @flyInOut>   
+    
+<!--     
     <div  class="page" style="position:absolute; margin-top:3%; text-align:center; width:100%;height:100%">
         <img class="ups-logo" src="assets/img/ups-logo.png">
         <h4 style="color:goldenrod; display: inline-block; font-size: 36px;">2nd Floor</h4>
+-->
         <!--<button class="btn-new" md-raised-button (click)="clickedNew()">NEW</button>-->
+<!--        
         <p><img  class="route-img"  src="assets/img/p-2d-101.PNG"></p>
-        <p orientation="horizontal" style="margin-top: 2%; color: white; font-size: 26px; border-color: white; border-width: 2;">      
+        <p orientation="horizontal" style="margin-top: 2%; color: white; font-size: 26px; border-color: white; border-width: 2;"> 
+-->                 
         <!--<button class="btn-destination" md-raised-button (click)="clicked()" style="line-height: 55px;">3D Destination View</button>-->
+<!--
         <button md-fab (click)="clickedNew()" mdTooltip="Back To Search" mdTooltipPosition="left">
             <i class="fa fa-home" aria-hidden="true"></i>
         </button>
@@ -14,5 +20,16 @@
             <i class="fa fa-location-arrow" aria-hidden="true"></i>
         </button>
         </p>
+    </div>
+-->
+    <div class="view-box">
+        <md-tab-group headerPosition="below">
+            <md-tab label="Full Map">
+                <p><img  class="route-img"  src="assets/img/p-2d-101.PNG"></p>
+            </md-tab>
+            <md-tab label="Destination View">
+                <p><img class="route-img" src="assets/img/p-2d-101z.PNG"></p>
+            </md-tab>
+        </md-tab-group>
     </div>
 </body>
