@@ -60,3 +60,12 @@ autocomplete-box {
     text-align: left;
     padding-left: 12px;
 }
+
+@media all and (max-width: 600px){
+     .search-bar{
+            width: 80%;
+      }
+      .dialog-content{
+            width: 80%;
+      }
+}

@@ -34,8 +34,8 @@
         width: 50%;
 }
 .route-img {
-    width: 700px;
-    height: 450px;
+    max-width: 80%;
+    margin-left: 10%;
 }
 .btn-destination {
     color: white;
@@ -45,4 +45,29 @@
     display: table-cell;
     vertical-align: middle; 
     margin-right: 10px;
+}
+
+
+/deep/ .mat-tab-label {
+    width: 50%;
+    background-color: goldenrod;
+    color: #FFFFFF;
+}
+
+.view-box{
+    width: 90%;
+    margin: 0 auto;
+    border: solid 2px white; 
+}
+
+.center{
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 600px){
+    .route-img {
+        max-width: 100%;
+        margin-left: 0;
+    }
 }

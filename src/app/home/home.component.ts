@@ -63,8 +63,8 @@ export class HomeComponent implements OnInit{
        this.showSearchContent = false;
    }
  
-   cubeSelected(){
-       this.router.navigate(["dest-page"]);
+   cubeSelected(cube){
+       this.router.navigate(["dest-page", cube.id]);
    }
  
    filter(event: any) {
