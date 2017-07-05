@@ -22,13 +22,24 @@
         </p>
     </div>
 -->
+
+    <div class="header">
+        <img src="assets/img/icon.png" >
+        <div class="h4 title"> UIC Roomfinder</div>
+        <button md-mini-fab (click)="clickedNew()" 
+                mdTooltip="Back To Search" 
+                mdTooltipPosition="left"
+                style="float: right">
+            <i class="fa fa-home" aria-hidden="true"></i>
+        </button>
+    </div>
     <div class="view-box">
         <md-tab-group headerPosition="below">
             <md-tab label="Full Map">
-                <p><img  class="route-img"  src="assets/img/p-2d-101.PNG"></p>
+                <p><img  class="route-img"  [src]="fullMapImg"></p>
             </md-tab>
             <md-tab label="Destination View">
-                <p><img class="route-img" src="assets/img/p-2d-101z.PNG"></p>
+                <p><img class="route-img" [src]="destImg"></p>
             </md-tab>
         </md-tab-group>
     </div>

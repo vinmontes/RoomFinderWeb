@@ -35,7 +35,8 @@
     <button class="btn-find" md-raised-button (click)="clicked()">Find</button>
   </div>
 -->
-  <div class="input-group search-bar">
+
+  <div class="input-group search-bar z-depth">
     <input class="form-control"  
            [(ngModel)]=query
            (keyup)=filter($event)

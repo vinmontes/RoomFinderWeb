@@ -58,6 +58,7 @@
     width: 90%;
     margin: 0 auto;
     border: solid 2px white; 
+    border-radius: 4px;
 }
 
 .center{
@@ -70,4 +71,17 @@
         max-width: 100%;
         margin-left: 0;
     }
+}
+
+.header{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.title{
+    color: goldenrod;
+    display: inline;
+    margin-left: 20px;
 }
