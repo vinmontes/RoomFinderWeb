@@ -52,7 +52,10 @@ export class HomeComponent implements OnInit{
  
    public filteredList = [];
    public elementRef;
-   selectedIdx: number;
+   selectedIdx: number = -1;
+
+   showCubeOwner: boolean = false;
+   showCubeId: boolean = false;
  
    constructor(private router: Router){}
  
@@ -64,6 +67,8 @@ export class HomeComponent implements OnInit{
    }
  
    cubeSelected(cube){
+       this.showCubeOwner = false;
+       this.showCubeId = false;
        this.router.navigate(["dest-page", cube.id]);
    }
  
@@ -74,25 +79,43 @@ export class HomeComponent implements OnInit{
            if(this.query !==""){
                this.filteredList = this.cubes.filter(function (cube) {
                    // console.log("cube: " + JSON.stringify(cube));
-                   let checkIfOwnerName = new RegExp('^[A-Za-z\s]+');
-                   // console.log("RegexTest: " + checkIfOwnerName.test(this.query));
+                   let checkIfOwnerName = new RegExp('^[A-Za-z\s]+$');
+                //    let checkIfOwnerName = new RegExp('^\D+$');
+                   
+                //    let checkIfCubeId = new RegExp('^P\d\S*');
+                   console.log("checkIfOwnerName: " + checkIfOwnerName.test(this.query));
+                //    console.log("checkIfCubeId: " + checkIfCubeId.test(this.query));
                    // console.log("Type test: " + typeof this.query);
                    if(checkIfOwnerName.test(this.query)){
+                    //    console.log("Running Q1")
+                       this.showCubeId = false;
+                       this.showCubeOwner = true;
                        return cube.owner.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
                    }
                    else{
-                       return cube.id.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
+                    //    console.log("Running Q2")
+                       this.showCubeOwner = false; 
+                       this.showCubeId = true;
+                       return cube.id.toLowerCase().indexOf(this.query.toLowerCase()) == 0;
                    }
                }.bind(this));
            }
            else{
                this.showSearchContent = false;
+               this.showCubeOwner = false;
+               this.showCubeId = false;
                return this.filteredList = [];
            }
-          
+
+        //   console.log("eventCode: " + event.code);
+        //   console.log("this.selectedIdx: " + this.selectedIdx);
+        //   console.log("this.filteredList.length: " + this.filteredList.length);
+
            if (event.code == "ArrowDown" && this.selectedIdx < this.filteredList.length) {
+            //    console.log("Running 1");
                this.selectedIdx++;
            } else if (event.code == "ArrowUp" && this.selectedIdx > 0) {
+            //    console.log("Running 2");
                this.selectedIdx--;
            }
        } else {

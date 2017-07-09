@@ -168,3 +168,8 @@ div:hover p {
   0%{}
   100%{}
 }
+
+.highlight-row{
+  background-color: #4db8ff;
+  color: #FFFFFF;
+}
