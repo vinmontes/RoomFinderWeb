@@ -170,6 +170,17 @@ div:hover p {
 }
 
 .highlight-row{
-  background-color: #4db8ff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
   color: #FFFFFF;
+  transform: scale(1.03,1.05);
+  box-shadow: 10px 20px 80px black;
+}
+
+.dialog-content:hover{
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  color: #FFFFFF;
+  transform: scale(1.03,1.05);
+  box-shadow: 10px 20px 80px black;
 }

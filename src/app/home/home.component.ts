@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit{
                 //    let checkIfOwnerName = new RegExp('^\D+$');
                    
                 //    let checkIfCubeId = new RegExp('^P\d\S*');
-                   console.log("checkIfOwnerName: " + checkIfOwnerName.test(this.query));
+                //    console.log("checkIfOwnerName: " + checkIfOwnerName.test(this.query));
                 //    console.log("checkIfCubeId: " + checkIfCubeId.test(this.query));
                    // console.log("Type test: " + typeof this.query);
                    if(checkIfOwnerName.test(this.query)){
@@ -117,6 +117,8 @@ export class HomeComponent implements OnInit{
            } else if (event.code == "ArrowUp" && this.selectedIdx > 0) {
             //    console.log("Running 2");
                this.selectedIdx--;
+           } else if (event.code == "Enter" && this.selectedIdx > -1){
+               this.cubeSelected(this.filteredList[this.selectedIdx]); 
            }
        } else {
            this.filteredList = [];
