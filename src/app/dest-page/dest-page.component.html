@@ -34,6 +34,10 @@
         </button>
     </div>
     <div class="view-box">
+        <div *ngIf="floor == '1'" class="h2 floor-title">1st Floor</div>
+        <div *ngIf="floor == '2'" class="h2 floor-title">2nd Floor</div>
+        <div *ngIf="floor == '3'" class="h2 floor-title">3rd Floor</div>
+        <div *ngIf="floor == '4'" class="h2 floor-title">4th Floor</div>
         <md-tab-group headerPosition="below">
             <md-tab label="Full Map">
                 <p><img  class="route-img"  [src]="fullMapImg"></p>

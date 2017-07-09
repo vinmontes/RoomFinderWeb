@@ -49,6 +49,8 @@ export class DestPageComponent implements OnInit {
   fullMapImg = "";
   destImg = "";
 
+  floor: string = "";
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -61,8 +63,12 @@ export class DestPageComponent implements OnInit {
       .forEach(param => {
         this.cubeId = param['id'];
       })
-    console.log(this.cubeId);
-
+    // console.log(this.cubeId);
+    if(this.cubeId != undefined && this.cubeId.length > 1){
+      this.floor = this.cubeId.charAt(1);
+      // console.log(this.floor);
+    }
+  
     this.fullMapImg = "assets/img/cubes/" + this.cubeId + ".png";
     this.destImg = "assets/img/cubes/" + this.cubeId + "Z.png";
 

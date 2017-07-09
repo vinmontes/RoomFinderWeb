@@ -85,3 +85,21 @@
     display: inline;
     margin-left: 20px;
 }
+
+.floor-title{
+    color: #351c15;
+    text-align: center;
+    margin: 0 auto 15px;
+    padding: 5px 0 5px 0;
+    background-color: goldenrod;
+}
+
+/deep/ .mat-tab-label {
+    background-color: goldenrod;
+    color: #FFFFFF
+}
+
+/deep/ .mat-tab-label:focus {
+    background-color: goldenrod;
+    color: #FFFFFF
+}
