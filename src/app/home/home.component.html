@@ -1,22 +1,78 @@
-<body class="page">
-  <h1 class="welcome"> Welcome To UPS <br> Innovation Center</h1>
+<body class="page" @flyInOut>
+  <h1 class="welcome">UPS Innovation Center</h1>
   <!--  <input type="text" name="search" placeholder="Enter Name or Destination #" style="font-size: 15px; width: 200px; height: 50px;">
 -->
+<!--
+  <div class="input-group search-bar">
+    <input type="text" class="form-control" 
+            placeholder="Search Name Or Location" 
+            aria-describedby="search-bar"
+            name="searchCube"
+            #searchCube="ngModel"
+            (ngModelChange)="filteredCubes = filterCubes(currentCube)"
+            [(ngModel)]="currentCube"
+            [mdAutocomplete]="auto">
+    <span class="input-group-addon" id="search-bar"><i class="fa fa-search" aria-hidden="true"></i></span>
+  </div>
+-->
+<!--
   <md-input-container class="autocomplete-box" >
     <input placeholder="Enter Name or Destination #" mdInput
       [mdAutocomplete]="auto" 
       [formControl]="stateCtrl"
       style="color: white;">
   </md-input-container>
-
-  <md-autocomplete #auto="mdAutocomplete">
-    <md-option *ngFor="let state of filteredStates | async" [value]="state">
-      {{ state }}
+-->
+<!--
+  <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayFn">
+    <md-option *ngFor="let cube of filteredCubes" [value]="cube" (click)="selectedCube(cube)">
+      {{ cube.owner }}
     </md-option>
   </md-autocomplete>
-
+-->
+<!--
   <div>
-    <button class="btn-find" (click)="clicked()">Find</button>
+    <button class="btn-find" md-raised-button (click)="clicked()">Find</button>
   </div>
-    <img src="assets/img/ups-logo.png" style="width:84px;height:100px;padding-top:4%;">
+-->
+
+  <div class="input-group search-bar z-depth">
+    <input class="form-control"  
+           [(ngModel)]=query
+           (keyup)=filter($event)
+           placeholder="Search by name or location"
+           style="border: none">
+    <span class="input-group-addon" id="search-bar"><i class="fa fa-search" aria-hidden="true"></i></span>
+  </div>
+  <div *ngIf="showSearchContent">
+    <div *ngFor="let cube of filteredList; let rowIndex = index" class="form-control dialog-content top-border"
+         [ngClass]="{ 'highlight-row' :  rowIndex == selectedIdx }">
+      <div id="{{ cube.id }}" 
+           (click)="cubeSelected(cube)">
+        <span *ngIf="showCubeOwner">{{ cube.owner }}</span>
+        <span *ngIf="showCubeId">{{ cube.id }} - {{ cube.owner }}</span>
+      </div>
+    </div>
+    <div *ngIf="cubes.length > 0 && filteredList.length < 1" 
+         class="form-control dialog-content top-border">
+        <div class="row-content">No Match Found</div>
+    </div>
+    <div *ngIf="cubes.length == 0" 
+         class="form-control dialog-content top-border">
+        <div class="row-content"><i>No Cube Found</i></div>
+    </div>  
+  </div>
+    <img src="assets/img/ups-logo-2.png" style="padding-top: 3%">
+    <div >
+      <p>R</p>
+      <p>o</p>
+      <p>o</p>
+      <p>m</p>
+      <p>f</p>
+      <p>i</p>
+      <p>n</p>
+      <p>d</p>
+      <p>e</p>
+      <p>r</p>
+  </div>
 </body>

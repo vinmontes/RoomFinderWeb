@@ -62,3 +62,6 @@ npm-debug.log
 *.swp
 /node_modules
 /nbproject/private/
+
+# img/cubes folder
+/src/assets/img/cubes
