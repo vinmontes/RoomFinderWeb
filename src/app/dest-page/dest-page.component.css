@@ -34,8 +34,19 @@
         width: 50%;
 }
 .route-img {
-    max-width: 80%;
+    width: 80%;
     margin-left: 10%;
+    height: 70vh;
+
+}
+
+@media all and (max-width: 599px){
+    .route-img {
+        width: 100%;
+        margin-left: 0;
+        height: 70vh;
+
+    }
 }
 .btn-destination {
     color: white;
@@ -84,4 +95,22 @@
     color: goldenrod;
     display: inline;
     margin-left: 20px;
+}
+
+.floor-title{
+    color: #351c15;
+    text-align: center;
+    margin: 0 auto 15px;
+    padding: 5px 0 5px 0;
+    background-color: goldenrod;
+}
+
+/deep/ .mat-tab-label {
+    background-color: goldenrod;
+    color: #FFFFFF
+}
+
+/deep/ .mat-tab-label:focus {
+    background-color: goldenrod;
+    color: #FFFFFF
 }
