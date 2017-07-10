@@ -73,13 +73,13 @@ export class HomeComponent implements OnInit{
    }
  
    filter(event: any) {
-       console.log("event: " + this.query);
+    //    console.log("event: " + this.query);
        this.showSearchContent = true;
        if (this.query !== undefined) {
            if(this.query !==""){
                this.filteredList = this.cubes.filter(function (cube) {
                    // console.log("cube: " + JSON.stringify(cube));
-                   let checkIfOwnerName = new RegExp('^[A-Za-z\s]+$');
+                   let checkIfOwnerName = new RegExp('^[A-Za-z]+[ ]*[A-Za-z]*$');
                 //    let checkIfOwnerName = new RegExp('^\D+$');
                    
                 //    let checkIfCubeId = new RegExp('^P\d\S*');
@@ -90,6 +90,7 @@ export class HomeComponent implements OnInit{
                     //    console.log("Running Q1")
                        this.showCubeId = false;
                        this.showCubeOwner = true;
+                    //    console.log(cube.owner.toLowerCase().indexOf(this.query.toLowerCase()));
                        return cube.owner.toLowerCase().indexOf(this.query.toLowerCase()) > -1;
                    }
                    else{
