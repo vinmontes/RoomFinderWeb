@@ -148,6 +148,14 @@ export class HomeComponent implements OnInit{
        }
        this.selectedIdx = -1;
    }
+
+   setIndex(rowIndex){
+       this.selectedIdx = rowIndex;
+   }
+
+   resetIndex(){
+       this.selectedIdx = -1;
+   }
  
 }
 
