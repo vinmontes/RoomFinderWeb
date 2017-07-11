@@ -42,7 +42,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { DestPageComponent } from './dest-page/dest-page.component'; 
-import { DestPageService } from './dest-page/dest-page.service';
+import { ImgDialog } from './dest-page/dest-page.component'; 
 import { FinalViewComponent } from './final-view/final-view.component'; 
 
 import '../styles/styles.scss';
@@ -71,7 +71,8 @@ type StoreType = {
     AppComponent,
     HomeComponent,
     DestPageComponent,
-    FinalViewComponent
+    FinalViewComponent,
+    ImgDialog
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -106,10 +107,10 @@ type StoreType = {
     MdTooltipModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
+  entryComponents: [ImgDialog],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS,
-    DestPageService
+    APP_PROVIDERS
   ]
 })
 export class AppModule {

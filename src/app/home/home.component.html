@@ -48,7 +48,9 @@
     <div *ngFor="let cube of filteredList; let rowIndex = index" class="form-control dialog-content top-border"
          [ngClass]="{ 'highlight-row' :  rowIndex == selectedIdx }">
       <div id="{{ cube.id }}" 
-           (click)="cubeSelected(cube)">
+           (click)="cubeSelected(cube)" 
+           (mouseenter)="setIndex(rowIndex)" 
+           (mouseleave)="resetIndex()">
         <span *ngIf="showCubeOwner">{{ cube.owner }}</span>
         <span *ngIf="showCubeId">{{ cube.id }} - {{ cube.owner }}</span>
       </div>

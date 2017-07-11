@@ -1,5 +1,5 @@
 
-<body @flyInOut>   
+<body @flyInOut style="position: relative;">   
     
 <!--     
     <div  class="page" style="position:absolute; margin-top:3%; text-align:center; width:100%;height:100%">
@@ -34,13 +34,15 @@
         </button>
     </div>
     <div class="view-box">
-        <div *ngIf="floor == '1'" class="h2 floor-title">1st Floor</div>
-        <div *ngIf="floor == '2'" class="h2 floor-title">2nd Floor</div>
-        <div *ngIf="floor == '3'" class="h2 floor-title">3rd Floor</div>
-        <div *ngIf="floor == '4'" class="h2 floor-title">4th Floor</div>
+        <div *ngIf="floor == '1'" class="h2 floor-title">1st Floor - {{ cubeId }}</div>
+        <div *ngIf="floor == '2'" class="h2 floor-title">2nd Floor - {{ cubeId }}</div>
+        <div *ngIf="floor == '3'" class="h2 floor-title">3rd Floor - {{ cubeId }}</div>
+        <div *ngIf="floor == '4'" class="h2 floor-title">4th Floor - {{ cubeId }}</div>
         <md-tab-group headerPosition="below">
             <md-tab label="Full Map">
-                <img  class="route-img"  [src]="fullMapImg">
+                <img  class="route-img" 
+                      [src]="fullMapImg" 
+                      (click)="openDialog(cubeId, fullMapImg)">
             </md-tab>
             <md-tab label="Destination View">
                 <img class="route-img" [src]="destImg">

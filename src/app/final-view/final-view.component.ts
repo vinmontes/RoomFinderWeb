@@ -21,44 +21,44 @@ import {
       state('in', style({opacity: 1, transform: 'translateY(0)'})),
       transition('void => *', [
         style({
-          opacity: 0
+          transform: 'translateX(-100%)'
         }),
-        animate('1s ease-in')
+        animate(300)
       ]),
-        transition('* => void', [
+      transition('* => void', [
+        animate(500, style({transform: 'translateX(-100%)'}))
+      ])
+    ]),
+    trigger('flyOutIn', [
+      state('in', style({opacity: 1, transform: 'translateY(0)'})),
+      transition('void => *', [
         style({
-          opacity: 0
+          transform: 'translateX(100%)'
         }),
-        animate('1s ease-in')
+        animate(300)
+      ]),
+      transition('* => void', [
+        animate(500, style({transform: 'translateX(100%)'}))
       ])
     ])
   ]
 })
 
-export class FinalViewComponent {
-
-  cubeId: string;
+export class FinalViewComponent implements OnInit{
   
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private location: Location
-  ) {}
+  loggedIn: boolean = false;
+
+  username: string;
+  password: string;
 
   ngOnInit(){
-    this.route.params
-      .forEach(param => {
-        this.cubeId = param['id'];
-      })
-
-    console.log(this.cubeId);
+    this.loggedIn = false;
   }
 
-  public clicked() {
-    this.router.navigate(["dest-page", this.cubeId]);
-  }
-  public clickedNew() {
-    this.router.navigate(["home"]);
+  checkCredentials(){
+    if(this.username == "roomfinder" && this.password == "upsuic2$!7"){
+      this.loggedIn = true;
+    }
   }
   
 }
