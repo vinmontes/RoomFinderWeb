@@ -2,7 +2,7 @@
 <body @flyInOut style="position: relative;">   
     <div class="header">
         <img src="assets/img/icon.png" >
-        <div class="h4 title"> UIC Roomfinder</div>
+        <div class="h2 title" style="vertical-align: middle"> Roomfinder</div>
         <button md-fab (click)="clickedNew()" 
                 mdTooltip="Back To Search" 
                 mdTooltipPosition="left"
@@ -20,7 +20,6 @@
                  class="route-img" 
                  [src]="fullMapImg" 
                  (click)="openDialog(cubeId, fullMapImg)">
-            
             <img *ngIf="showDestImg" 
                  class="route-img" 
                  [src]="destImg">
