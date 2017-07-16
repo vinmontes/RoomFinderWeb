@@ -1,36 +1,13 @@
 
 <body @flyInOut style="position: relative;">   
-    
-<!--     
-    <div  class="page" style="position:absolute; margin-top:3%; text-align:center; width:100%;height:100%">
-        <img class="ups-logo" src="assets/img/ups-logo.png">
-        <h4 style="color:goldenrod; display: inline-block; font-size: 36px;">2nd Floor</h4>
--->
-        <!--<button class="btn-new" md-raised-button (click)="clickedNew()">NEW</button>-->
-<!--        
-        <p><img  class="route-img"  src="assets/img/p-2d-101.PNG"></p>
-        <p orientation="horizontal" style="margin-top: 2%; color: white; font-size: 26px; border-color: white; border-width: 2;"> 
--->                 
-        <!--<button class="btn-destination" md-raised-button (click)="clicked()" style="line-height: 55px;">3D Destination View</button>-->
-<!--
-        <button md-fab (click)="clickedNew()" mdTooltip="Back To Search" mdTooltipPosition="left">
-            <i class="fa fa-home" aria-hidden="true"></i>
-        </button>
-        <button md-fab (click)="clicked()" mdTooltip="3D View" mdTooltipPosition="right">
-            <i class="fa fa-location-arrow" aria-hidden="true"></i>
-        </button>
-        </p>
-    </div>
--->
-
     <div class="header">
         <img src="assets/img/icon.png" >
         <div class="h4 title"> UIC Roomfinder</div>
-        <button md-mini-fab (click)="clickedNew()" 
+        <button md-fab (click)="clickedNew()" 
                 mdTooltip="Back To Search" 
                 mdTooltipPosition="left"
                 style="float: right">
-            <i class="fa fa-home" aria-hidden="true"></i>
+            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
         </button>
     </div>
     <div class="view-box">
@@ -38,15 +15,19 @@
         <div *ngIf="floor == '2'" class="h2 floor-title">2nd Floor - {{ cubeId }}</div>
         <div *ngIf="floor == '3'" class="h2 floor-title">3rd Floor - {{ cubeId }}</div>
         <div *ngIf="floor == '4'" class="h2 floor-title">4th Floor - {{ cubeId }}</div>
-        <md-tab-group headerPosition="below">
-            <md-tab label="Full Map">
-                <img  class="route-img" 
-                      [src]="fullMapImg" 
-                      (click)="openDialog(cubeId, fullMapImg)">
-            </md-tab>
-            <md-tab label="Destination View">
-                <img class="route-img" [src]="destImg">
-            </md-tab>
-        </md-tab-group>
+        <div>
+            <img *ngIf="showFullImg"
+                 class="route-img" 
+                 [src]="fullMapImg" 
+                 (click)="openDialog(cubeId, fullMapImg)">
+            
+            <img *ngIf="showDestImg" 
+                 class="route-img" 
+                 [src]="destImg">
+        </div>
+        <div class="nav-buttons">
+            <button md-raised-button (click)="showFullImg = true; showDestImg = false">Full Map</button>
+            <button md-raised-button (click)="showFullImg = false; showDestImg = true">Destination View</button>
+        </div>
     </div>
 </body>

@@ -40,11 +40,12 @@
     <input class="form-control"  
            [(ngModel)]=query
            (keyup)=filter($event)
+           (keydown)="scrollUpDown($event)"
            placeholder="Search by name or location"
            style="border: none">
     <span class="input-group-addon" id="search-bar"><i class="fa fa-search" aria-hidden="true"></i></span>
   </div>
-  <div *ngIf="showSearchContent">
+  <div id="listView" *ngIf="showSearchContent">
     <div *ngFor="let cube of filteredList; let rowIndex = index" class="form-control dialog-content top-border"
          [ngClass]="{ 'highlight-row' :  rowIndex == selectedIdx }">
       <div id="{{ cube.id }}" 

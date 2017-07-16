@@ -34,7 +34,8 @@
         width: 50%;
 }
 .route-img {
-    width: 700px;
+    width: 90%;
+    max-width: 1100px;
     height: 70vh;
     display: block;
     margin-left: auto;
@@ -43,20 +44,31 @@
     cursor: pointer;
 }
 
+@media all and (max-width: 399px){
+    .route-img {
+        width: 100%;
+        margin-left: 0;
+        height: 70vh;
+        max-height: 300px;   
+    }
+}
+
 @media all and (max-width: 599px){
     .route-img {
         width: 100%;
         margin-left: 0;
         height: 70vh;
-
+        max-height: 400px;   
     }
 }
 
-@media all and (max-width: 699px){
+@media all and (max-width: 799px){
     .route-img {
-        width: 600px;
+        height: 70vh;
+        max-height: 500px;   
     }
 }
+
 .btn-destination {
     color: white;
     background-color: goldenrod;
@@ -107,6 +119,14 @@
     background-color: goldenrod;
 }
 
+.nav-buttons{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    text-align: center
+}
+
 >>> .mat-tab-label {
     width: 50%;
     background-color: goldenrod;
@@ -120,4 +140,28 @@
 
 >>> .mat-dialog-container {
     max-width: 96vw !important;
+}
+
+>>> .mat-raised-button{
+    margin-bottom: 5px !important;
+    background: goldenrod;
+    width: 250px;
+}
+
+>>> .mat-raised-button:hover{
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    transform: scale(1.03,1.05);
+    color: #FFFFFF;
+    width: 250px;
+
+}
+
+>>> .mat-raised-button:focus{
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    transform: scale(1.03,1.05);
+    color: #FFFFFF;
+    width: 250px;
+
 }
