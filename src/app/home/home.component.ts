@@ -1,4 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    OnInit,
+    Input,
+    Output,
+    EventEmitter,
+    DoCheck,
+    KeyValueDiffers } from '@angular/core';
+
 import { AppState } from '../app.service';
 import { Router } from "@angular/router"; 
 import { DestPageComponent } from "../dest-page/dest-page.component"; 
@@ -56,8 +65,14 @@ export class HomeComponent implements OnInit{
 
    showCubeOwner: boolean = false;
    showCubeId: boolean = false;
+
+   differ: any;
  
-   constructor(private router: Router){}
+   constructor(private router: Router, 
+               private differs: KeyValueDiffers, 
+               private _eref: ElementRef){
+        this.differ = differs.find({}).create(null);
+    }
  
    ngOnInit(){
        this.cubes = CUBES;
@@ -112,18 +127,22 @@ export class HomeComponent implements OnInit{
         //   console.log("this.selectedIdx: " + this.selectedIdx);
         //   console.log("this.filteredList.length: " + this.filteredList.length);
 
-           if (event.code == "ArrowDown" && this.selectedIdx < this.filteredList.length) {
-            //    console.log("Running 1");
-               this.selectedIdx++;
-           } else if (event.code == "ArrowUp" && this.selectedIdx > 0) {
-            //    console.log("Running 2");
-               this.selectedIdx--;
-           } else if (event.code == "Enter" && this.selectedIdx > -1){
+           if(event.code == "Enter" && this.selectedIdx > -1){
                this.cubeSelected(this.filteredList[this.selectedIdx]); 
            }
        } else {
            this.filteredList = [];
        }
+   }
+
+   scrollUpDown(event: any){
+       if (event.code == "ArrowDown" && this.selectedIdx < this.filteredList.length) {
+        //    console.log("Running 1");
+            this.selectedIdx++;
+        } else if (event.code == "ArrowUp" && this.selectedIdx > 0) {
+        //    console.log("Running 2");
+            this.selectedIdx--;
+        }
    }
  
    handleBlur() {

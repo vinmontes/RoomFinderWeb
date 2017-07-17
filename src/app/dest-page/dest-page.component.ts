@@ -51,6 +51,9 @@ export class DestPageComponent implements OnInit {
 
   floor: string = "";
 
+  showFullImg: boolean;
+  showDestImg: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -68,6 +71,9 @@ export class DestPageComponent implements OnInit {
       this.floor = this.cubeId.charAt(1);
       // console.log(this.floor);
     }
+
+    this.showFullImg = true;
+    this.showDestImg = false;
   
     this.fullMapImg = "assets/img/cubes/" + this.cubeId + ".png";
     this.destImg = "assets/img/cubes/" + this.cubeId + "Z.png";
