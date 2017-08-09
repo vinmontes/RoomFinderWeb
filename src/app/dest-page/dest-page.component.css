@@ -45,24 +45,51 @@
 }
 
 @media all and (max-width: 399px){
+
+    body{
+        padding-top: 15px;
+    }
+
+    .view-box{
+        margin-top: 25px !important;
+    }
+
     .route-img {
         width: 100%;
         margin-left: 0;
-        height: 70vh;
+        height: 50vh;
         max-height: 300px;   
     }
 }
 
-@media all and (max-width: 599px){
+@media all and (min-width: 400px) and (max-width: 599px){
+
+    body{
+        padding-top: 15px;
+    }
+
+    .view-box{
+        margin-top: 25px !important;
+    }
+
     .route-img {
         width: 100%;
         margin-left: 0;
-        height: 70vh;
+        height: 55vh;
         max-height: 400px;   
     }
 }
 
-@media all and (max-width: 799px){
+@media all and (min-width: 600px) and (max-width: 799px){
+
+    body{
+        padding-top: 15px;
+    }
+
+    .view-box{
+        margin-top: 25px !important;
+    }
+    
     .route-img {
         height: 70vh;
         max-height: 500px;   

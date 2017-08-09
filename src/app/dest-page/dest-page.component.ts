@@ -89,15 +89,19 @@ export class DestPageComponent implements OnInit {
   }
 
   openDialog(value, imagePath){
-    let dialogRef = this.dialog.open(ImgDialog, {
-      data: {
-        id: value,
-        img: imagePath
-      }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-    });
+
+    console.log(screen.width);
+    if(screen.width > 992){
+      let dialogRef = this.dialog.open(ImgDialog, {
+        data: {
+          id: value,
+          img: imagePath
+        }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        // console.log(result);
+      });
+    }    
   }
 
 }

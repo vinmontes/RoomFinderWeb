@@ -43,7 +43,7 @@
            (keydown)="scrollUpDown($event)"
            placeholder="Search by name or location"
            style="border: none">
-    <span class="input-group-addon" id="search-bar"><i class="fa fa-search" aria-hidden="true"></i></span>
+    <span class="input-group-addon" id="search-bar"><img src="assets/img/magnify.png"></span>
   </div>
   <div id="listView" *ngIf="showSearchContent">
     <div *ngFor="let cube of filteredList; let rowIndex = index" class="form-control dialog-content top-border"
