@@ -7,6 +7,6 @@ export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home',  component: HomeComponent },
   { path: 'dest-page/:id',  component: DestPageComponent },
-  { path: 'final-view/:id',  component: FinalViewComponent },
+  // { path: 'update',  component: FinalViewComponent },
 ];
 

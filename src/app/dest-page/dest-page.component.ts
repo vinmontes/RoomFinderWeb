@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AppState } from '../app.service';
 import { Router } from "@angular/router"; 
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
+
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 
 import {
   trigger,
@@ -11,8 +13,6 @@ import {
   animate,
   transition
 } from '@angular/animations';
-
-import { DestPageService } from './dest-page.service';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -51,11 +51,14 @@ export class DestPageComponent implements OnInit {
 
   floor: string = "";
 
+  showFullImg: boolean;
+  showDestImg: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
-    private destPageService: DestPageService
+    public dialog: MdDialog
   ) {}
 
   ngOnInit(){
@@ -68,6 +71,9 @@ export class DestPageComponent implements OnInit {
       this.floor = this.cubeId.charAt(1);
       // console.log(this.floor);
     }
+
+    this.showFullImg = true;
+    this.showDestImg = false;
   
     this.fullMapImg = "assets/img/cubes/" + this.cubeId + ".png";
     this.destImg = "assets/img/cubes/" + this.cubeId + "Z.png";
@@ -77,7 +83,48 @@ export class DestPageComponent implements OnInit {
   clicked(){
     this.router.navigate(["final-view", this.cubeId]);
   }
-    public clickedNew() {
+  
+  clickedNew() {
     this.router.navigate(["home"]);
+  }
+
+  openDialog(value, imagePath){
+
+    console.log(screen.width);
+    if(screen.width > 992){
+      let dialogRef = this.dialog.open(ImgDialog, {
+        data: {
+          id: value,
+          img: imagePath
+        }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        // console.log(result);
+      });
+    }    
+  }
+
+}
+
+
+@Component({
+  selector: 'dialog-img-dialog',
+  template: `<p md-dialog-title> {{ passedId }} </p>
+             <p md-dialog-content>
+              <img [src]="passedImg">
+             </p>
+            `,
+})
+export class ImgDialog implements OnInit {
+  
+  passedId: string;
+  passedImg: string;
+  
+  constructor(@Inject(MD_DIALOG_DATA) private data: { id: string, img: string }, 
+              public dialogRef: MdDialogRef<ImgDialog>) {}
+              
+  ngOnInit(){
+    this.passedId = this.data.id; 
+    this.passedImg = this.data.img; 
   }
 }
